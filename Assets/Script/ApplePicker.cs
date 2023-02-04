@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.InputSystem.LowLevel;
 
 public class ApplePicker : MonoBehaviour
 {
@@ -38,9 +37,8 @@ public class ApplePicker : MonoBehaviour
     {
         int basketIndex = basketList.Count - 1;
         GameObject tBasketGo = basketList[basketIndex];
-     
-        UnityEngine.Object obj = AssetDatabase.LoadMainAssetAtPath("Assets/Material/Mat_Basket_First.mat");
-        Material mat = obj as Material;
+
+        Material mat = Resources.Load<Material>("Mat_Basket_First"); 
         tBasketGo.GetComponent<Renderer>().material = mat;
 
         Basket basket = tBasketGo.GetComponent<Basket>();
